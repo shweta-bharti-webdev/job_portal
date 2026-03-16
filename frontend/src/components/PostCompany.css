@@ -1,0 +1,88 @@
+.page{
+
+  width:900px;
+  margin:auto;
+  padding-top:40px;
+
+}
+
+.heading{
+
+  text-align:center;
+  margin-bottom:40px;
+
+}
+
+/* FORM BOX */
+
+.form-box{
+
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom:50px;
+
+}
+
+form{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+
+}
+
+input{
+
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+
+}
+
+button{
+
+  grid-column:span 2;
+  padding:12px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+
+}
+
+button:hover{
+
+  background:#1e40af;
+
+}
+
+/* COMPANY LIST */
+
+.company-list{
+
+  margin-top:20px;
+
+}
+
+.company-card{
+
+  display:flex;
+  gap:20px;
+  border:1px solid #ddd;
+  padding:15px;
+  border-radius:8px;
+  margin-bottom:15px;
+  background:#f9f9f9;
+
+}
+
+.logo{
+
+  width:60px;
+  height:60px;
+  object-fit:cover;
+
+}

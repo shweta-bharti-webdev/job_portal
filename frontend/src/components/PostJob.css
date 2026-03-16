@@ -1,0 +1,73 @@
+/* .postjob-container{
+width:600px;
+margin:auto;
+margin-top:40px;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.job-form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.job-form input,
+.job-form textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+.job-form textarea{
+height:80px;
+}
+
+.job-form button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:12px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.job-form button:hover{
+background:#388e3c;
+} */
+
+
+.postjob-container{
+width:600px;
+margin:auto;
+margin-top:40px;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.job-form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.job-form input,
+.job-form textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.job-form button{
+background:#2196f3;
+color:white;
+border:none;
+padding:10px;
+border-radius:5px;
+cursor:pointer;
+}

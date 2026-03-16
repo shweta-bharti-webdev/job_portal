@@ -1,0 +1,61 @@
+.recruiter-container{
+display:flex;
+height:100vh;
+font-family:Arial;
+}
+
+/* LEFT SIDE */
+
+.recruiter-left{
+width:40%;
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
+
+.recruiter-left img{
+width:300px;
+margin-bottom:20px;
+}
+
+.recruiter-left h2{
+margin-bottom:10px;
+}
+
+/* RIGHT */
+
+.recruiter-right{
+width:60%;
+background:#f5f7fb;
+padding:40px;
+}
+
+.recruiter-right h1{
+margin-bottom:30px;
+}
+
+.recruiter-cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.recruiter-card{
+background:white;
+padding:25px;
+border-radius:12px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.recruiter-card:hover{
+background:#eef2ff;
+transform:translateY(-6px);
+}
