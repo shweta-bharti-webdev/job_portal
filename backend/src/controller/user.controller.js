@@ -73,7 +73,9 @@ async function updateProfile(req,res){
 
 async function getJobs(req,res){
     try{
-        const jobs = await jobModel.find(); // get all jobs
+        const jobs = await jobModel.find()
+            .populate("company")
+            .populate("createdBy", "username");
 
         res.status(200).json({
         success: true,
@@ -82,7 +84,7 @@ async function getJobs(req,res){
     }
     catch(error){
         console.log(error);
-        return res.status(500).message({
+        return res.status(500).json({
             message: "error fetching jobs",
             success: false
         });

@@ -12,6 +12,7 @@ router.post("/job",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,rec
 router.put("/job/:jobId",authMiddleware.isAuthenticated, roleMiddleware.isRecruiter,recruiterController.updateJobById);
 router.delete("/job/:jobId",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,recruiterController.deleteJobById);
 router.get("/my_jobs",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,recruiterController.get_jobs);
+router.get("/applicants/all",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,recruiterController.getAllApplicants);
 router.get("/applicants/:jobId",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,recruiterController.getApplicants);
 router.patch("/application/:applicationId/status",authMiddleware.isAuthenticated,roleMiddleware.isRecruiter,recruiterController.updateApplicationStatus);
 

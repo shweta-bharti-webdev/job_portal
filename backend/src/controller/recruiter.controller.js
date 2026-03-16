@@ -109,7 +109,7 @@ async function createCompany(req,res){
 async function getRecruiterCompany(req,res){
     try {
 
-    const company = await companyModel.findOne({recruiter: req.user._id}).populate("recruiter","name");
+    const company = await companyModel.findOne({userId: req.user._id}).populate("userId","username");
 
     if (!company) {
       return res.status(404).json({
@@ -120,7 +120,7 @@ async function getRecruiterCompany(req,res){
     res.status(200).json({
       company:{
         name:company.name,
-        recruiter:company.recruiter.name
+        recruiter:company.userId?.username
       }
     });
 
@@ -193,7 +193,7 @@ async function createJob(req,res){
 
     //check company of recruiter
     const company = await companyModel.findOne({
-      createdBy: recruiterId
+      userId: recruiterId
     });
 
     if (!company) {
@@ -336,7 +336,7 @@ async function deleteJobById(req,res){
 
 async function get_jobs(req,res){
     try{
-        const jobs = await jobModel.find({createdBy: req.user._id}).populate("createdBy","name").populate("company","name");
+        const jobs = await jobModel.find({createdBy: req.user._id}).populate("createdBy","username").populate("company","name");
 
         return res.status(200).json({
             message: "job fetched successfully",
@@ -374,7 +374,16 @@ async function  getApplicants(req,res){
             });
         }
         // get all applicants
-        const applicants = await applicationModel.find({job: jobId}).populate("applicant","name email").sort({createdAt: -1})// fetching user details
+        const applicants = await applicationModel.find({job: jobId})
+            .populate({
+                path: "applicant",
+                select: "username email profile"
+            })
+            .populate({
+                path: "job",
+                select: "title"
+            })
+            .sort({createdAt: -1});
 
         return res.status(200).json({
             message:"applicants fetched successfully",
@@ -443,5 +452,40 @@ async function updateApplicationStatus(req,res){
     }
 }
 
-module.exports = {getRecruiterProfile,createCompany,getRecruiterCompany,updateComapny,createJob, updateJobById,deleteJobById , get_jobs, getApplicants,updateApplicationStatus};
+async function getAllApplicants(req, res) {
+    try {
+        const recruiterId = req.user._id;
+
+        // 1. Find all jobs posted by this recruiter
+        const myJobs = await jobModel.find({ createdBy: recruiterId }).select("_id");
+        const jobIds = myJobs.map(job => job._id);
+
+        // 2. Find all applications for these jobs
+        const applicants = await applicationModel.find({ job: { $in: jobIds } })
+            .populate({
+                path: "applicant",
+                select: "username email profile"
+            })
+            .populate({
+                path: "job",
+                select: "title company",
+                populate: { path: "company", select: "name" }
+            })
+            .sort({ createdAt: -1 });
+
+        return res.status(200).json({
+            message: "All applicants fetched successfully",
+            totalApplicants: applicants.length,
+            applicants,
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "server error",
+            success: false,
+        });
+    }
+}
+
+module.exports = {getRecruiterProfile,createCompany,getRecruiterCompany,updateComapny,createJob, updateJobById,deleteJobById , get_jobs, getApplicants,getAllApplicants,updateApplicationStatus};
 

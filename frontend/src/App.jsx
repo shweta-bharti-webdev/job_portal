@@ -13,6 +13,9 @@ import UpdateCompany from "./components/UpdateCompany";
 import PostJob from "./components/PostJob";
 import PostedJobs from "./components/PostedJobs";
 import Jobs from "./components/Jobs";
+import Applicants from "./components/Applicants";
+import MyApplications from "./components/MyApplications";
+import UpdateApplicationStatus from "./components/UpdateApplicationStatus";
 
 function App() {
   return (
@@ -21,31 +24,34 @@ function App() {
 
         {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
-        <Route path= "/register" element={<Register/>}/>
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
         {/*USER ROUTES */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/view" element={<ProfileView />} />
-        <Route path="/recruiter/jobs" element={<Jobs/>}/>
+        <Route path="/jobs" element={<Jobs />} />
+        <Route path="/applications" element={<MyApplications />} />
 
         {/*ADMIN ROUTES */}
-        <Route path="/admin" element={<AdminRegister/>} />
+        <Route path="/admin" element={<AdminRegister />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
         {/*RECRUITER ROUTES */}
         <Route path="/recruiter/dashboard" element={<RecruiterDashboard />} />
-        <Route path="/recruiter/profile" element={<RecruiterProfile/>} />
-        <Route path="/recruiter/post-company" element={<PostCompany/>}/>
-        <Route path="/recruiter/update-company" element={<UpdateCompany/>}/>
-        <Route path="/recruiter/Post-Job" element={<PostJob/>}/>
-        <Route path="/recruiter/my_jobs" element={<PostedJobs/>}/>
-        
+        <Route path="/recruiter/profile" element={<RecruiterProfile />} />
+        <Route path="/recruiter/post-company" element={<PostCompany />} />
+        <Route path="/recruiter/update-company" element={<UpdateCompany />} />
+        <Route path="/recruiter/post-job" element={<PostJob />} />
+        <Route path="/recruiter/my_jobs" element={<PostedJobs />} />
+        <Route path="/recruiter/applicants/:jobId" element={<Applicants />} />
+        <Route path="/application/update" element={<UpdateApplicationStatus />} />
         
       </Routes>
     </BrowserRouter>
   );
 }
+
 
 export default App;
 

@@ -12,8 +12,8 @@ const routes = [
 {title:"Update Company", path:"/recruiter/update-company"},
 {title:"Post Job", path:"/recruiter/post-job"},
 {title:"My Posted Jobs", path:"/recruiter/my_jobs"},
-{title:"Applicants", path:"/recruiter/applicants/:jobId"},
-{title:"Update Application Status", path:"/application/update"}
+{title:"Applicants List", path:"/recruiter/applicants/all"}, 
+{title:"Update Status", path:"/application/update"}, 
 ];
 
 return (

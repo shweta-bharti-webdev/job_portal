@@ -29,24 +29,24 @@ const handleSubmit = async (e) => {
     return;
   }
 
+  // Clear any existing session data to prevent role-bleeding from previous sessions
+  localStorage.clear();
+
   try {
     const res = await axios.post(
       "http://localhost:3000/api/auth/register",
       formData
     );
 
-    const role = res.data?.user?.role;
-
-    if (role === "user") {
-      navigate("/profile");
-    } else if (role === "recruiter") {
-      navigate("/recruiter/dashboard");
+    if (res.data) {
+      // We don't store token here because backend only sends it on Login
+      alert("Registration Successful! Please login to your new account.");
+      navigate("/login"); 
     }
 
   } catch (error) {
     console.log(error.response);
     alert(error.response?.data?.message || "Registration failed");
-
   }
 };
   return (

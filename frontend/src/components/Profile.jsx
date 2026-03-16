@@ -28,33 +28,18 @@ const Profile = () => {
         <div className="function-grid">
 
           <div className="function-card" onClick={() => navigate("/profile/view")}>
-            <h3>Profile</h3>
-            <p>Fetch the logged in user's profile</p>
-          </div>
-
-          <div className="function-card" onClick={() => navigate("/profile/update")}>
-            <h3>Profile Update</h3>
-            <p>Update user's profile info</p>
+            <h3>My Profile</h3>
+            <p>View your personal profile details and skills</p>
           </div>
 
           <div className="function-card" onClick={() => navigate("/jobs")}>
-            <h3>Jobs</h3>
-            <p>Fetch all available jobs</p>
-          </div>
-
-          <div className="function-card" onClick={() => navigate("/jobs/id")}>
-            <h3>Jobs By Id</h3>
-            <p>Get details of a specific job</p>
-          </div>
-
-          <div className="function-card" onClick={() => navigate("/jobs/apply")}>
-            <h3>Apply Job</h3>
-            <p>User applies for a job</p>
+            <h3>Find Jobs</h3>
+            <p>Browse all available job opportunities</p>
           </div>
 
           <div className="function-card" onClick={() => navigate("/applications")}>
             <h3>My Applications</h3>
-            <p>Get all jobs the user applied for</p>
+            <p>Track the status of your job applications</p>
           </div>
 
         </div>

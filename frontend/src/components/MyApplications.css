@@ -1,0 +1,130 @@
+.applications-container {
+  height: 100vh;
+  padding: 40px;
+  background-color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+.applications-header {
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+.applications-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.applications-header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 5px;
+}
+
+/* Custom Scrollbar */
+.applications-grid::-webkit-scrollbar {
+  width: 6px;
+}
+.applications-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+.applications-grid::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.application-card {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.application-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.app-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.status-tag {
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tag-pending { background-color: #fef9c3; color: #854d0e; }
+.tag-accepted { background-color: #dcfce7; color: #166534; }
+.tag-rejected { background-color: #fee2e2; color: #991b1b; }
+
+.app-date {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.app-job-info h2 {
+  font-size: 22px;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.app-company, .app-location {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 5px;
+}
+
+.app-job-details {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px dashed #f1f5f9;
+}
+
+.app-job-details p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.app-footer {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.app-id {
+  font-size: 10px;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.no-apps {
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 100px;
+  color: #94a3b8;
+}
